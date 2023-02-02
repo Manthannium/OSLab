@@ -71,7 +71,17 @@ int main() {
 // compile : gcc prog.c -lpthread
 ```
 ```
+Output : 347,10,348,20,349,30,40,50,done
 
+if remove pthread_join then
+Output : 347,10,348,20,349,30,done,40,50
+(so there join waits till other threads completes and then joins them and executes further)
+
+if remove pthread_join and sleep(8) then
+Output : 347,10,348,20,349,30,done
+(here once parent thread is killed/completed its children no further able to execute)
+
+if we replace sleep(8) with sleep(2), then additional 40 is also printed
 ```
 
 
