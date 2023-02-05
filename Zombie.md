@@ -9,6 +9,9 @@ From child death till parent death, child remains zombie
 However if we use wait(); in parent, then child is terminated from zombieness 
 
 when we use wait(); in parent, it pauses and waits for its child process to complete, then only it resumes
+
+When parent encounters wait, it pauses for one child at a time and releases it, then its resumes. 
+then again when it encounters wait, it pauses for next child, releases it and resumes 
 ```
 Example 1
 ```c
