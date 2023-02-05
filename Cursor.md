@@ -2,6 +2,10 @@
 ```
 when main process dies leaving its child, cursor comes
 ```
+```
+whenever any process dies, its child (if running) is adopted by login process
+It may be possible that parent is alive, its child dies and grandchild alive. Here grandchild is adopted by login process
+```
 
 Example 1
 ```c
