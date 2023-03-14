@@ -6,6 +6,6 @@
 main() {
 	int fd;
 	fd = open("h",65,0666);  // fd = 3
-	write(fd,"kthwey",6);
+	write(fd,"kthwey",6);    // 6 = no. of letters to write
 }
 ```
