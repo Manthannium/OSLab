@@ -24,3 +24,24 @@ write(3,"uv",2);
 // outputs ghpqruv. If fflush is removed then ghuvpqr
 // buffer is flushed at last
 ```
+```c
+FILE *a;
+p = open("x",65,0666);
+a = fdopen(p,"w");
+//is equivalent to
+a = fopen("x","w");
+```
+```c
+a = fopen("x","w");  // file in FD=3, buffer a=58
+write(3,"pq",2);  // pq is written in x
+fprintf(a,"rs");  // rs is written in buffer
+close(3);    // makes FD=3 free
+open("y",65,0666); // file y is opened in FD=3
+write(3,"uv",2);
+fprintf(a,"gh");
+
+// x = pq, y = uvrsgh
+// if we replace close(3) with fclose(3)
+// fclose(3) frees both FD=3 and buffer=58
+// x = pqrs, y = uv as buffer is not associated with FD=3
+```
