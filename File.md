@@ -1,4 +1,12 @@
-# File Descriptor (FD)
+# File Handling
+```
+fprintf(x,"pqr");      // writes pqr into buffer x
+write(3,"abcd",4);     // writes 4 letters in FD=3 immediately
+lseek(3,5,SEEK_SET);   // takes file pointer of FD=3 to location 5 relative to start (0)
+fflush(x);             // flushes the buffer x and put its content in associated file
+read(3,&c,1);          // reads 1 characters from FD=3 and increments FP
+```
+
 ### Low level system calls
 ```c
 #include<stdio.h>
